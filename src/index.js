@@ -32,9 +32,9 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('sky', 'assets/sky.png');
-    this.load.image('ground', 'assets/platform.png');
-    this.load.image('star', 'assets/star.png');
+    this.load.image('bgd', 'assets/bgd.jpg');
+    this.load.image('ground', 'assets/platform3.png');
+    this.load.image('diamond', 'assets/diamond.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 }
@@ -42,7 +42,7 @@ function preload ()
 function create ()
 {
     //  A simple background for our game
-    this.add.image(400, 300, 'sky');
+    this.add.image(400, 300, 'bgd');
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
@@ -89,7 +89,7 @@ function create ()
 
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
     stars = this.physics.add.group({
-        key: 'star',
+        key: 'diamond',
         repeat: 11,
         setXY: { x: 12, y: 0, stepX: 70 }
     });
