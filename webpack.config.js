@@ -1,59 +1,50 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    filename: 'app.bundle.js',
+    path: path.resolve(__dirname, 'build'),
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        // Images
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
-        use: ['file-loader'],
-      },
-      {
-        // Font
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
-      },
-      // Rules required for Bootstrap to work
-      {
-        test: /\.(scss)$/,
-        use: [
-          {
-            // Adds CSS to the DOM by injecting a `<style>` tag
-            loader: 'style-loader',
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src/'),
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
           },
-          {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: 'css-loader',
-          },
-          {
-            // Loader for webpack to process CSS with PostCSS
-            loader: 'postcss-loader',
-            /* eslint-disable */
-            options: {
-              plugins() {
-                return [require('autoprefixer')];
-              },
-            },
-            /* eslint-enable */
-          },
-          {
-            // Loads a SASS/SCSS file and compiles it to CSS
-            loader: 'sass-loader',
-          },
-        ],
+        },
       },
     ],
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'build'),
+
+  },
+
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'index.html'),
+        to: path.resolve(__dirname, 'build'),
+      },
+      {
+        from: path.resolve(__dirname, 'assets', '**', '*'),
+        to: path.resolve(__dirname, 'build'),
+      },
+    ]),
+    new webpack.DefinePlugin({
+      'typeof CANVAS_RENDERER': JSON.stringify(true),
+      'typeof WEBGL_RENDERER': JSON.stringify(true),
+    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'production-dependencies',
+    //   filename: 'production-dependencies.bundle.js'
+    // }),
+  ],
 };
