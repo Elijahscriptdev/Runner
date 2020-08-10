@@ -1,45 +1,26 @@
 {
-  "name": "rpg-game",
+  "name": "phaser3-project-template-3",
   "version": "1.0.0",
-  "description": "RPG game",
-  "main": "index.js",
+  "description": "A Phaser 3 Project Template",
+  "main": "src/index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "watch": "webpack --watch --mode development",
-    "start": "webpack-dev-server --open",
-    "test": "jest --watch"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
+    "build": "webpack",
+    "start": "npm run build && webpack-dev-server --port=8000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edemagbenyo/rpg-game.git"
+    "url": "git+https://scottwestover@bitbucket.org/creativerendering/phaser3-template.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "bugs": {
-    "url": "https://github.com/edemagbenyo/rpg-game/issues"
+    "url": "https://github.com/photonstorm/phaser3-project-template/issues"
   },
-  "homepage": "https://github.com/edemagbenyo/rpg-game#readme",
+  "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "jest": "^20.0.4",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
-  },
-  "dependencies": {
-    "phaser": "^3.22.0"
+    "webpack-dev-server": "^2.11.0",
+    "webpack": "^3.4.1",
+    "raw-loader": "^0.5.1",
+    "phaser": "^3.3.0"
   }
 }

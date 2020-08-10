@@ -1,80 +1,22 @@
-import Phaser from 'phaser';
+import 'phaser';
 import config from '../Config/config';
+import Button from '../Objects/Button';
 
-export default class extends Phaser.Scene {
-  constructor() {
+export default class TitleScene extends Phaser.Scene {
+  constructor () {
     super('Title');
   }
 
-  create() {
-    this.add.image(400, 300, 'bg-img');
-    // SetInteractive: By making a sprite interactive, Phaser will fire different events when
-    // the player interacts with that object. Some of these events include when a player mouses
-    // over an object or when they click on it.
-    this.gameButton = this.add.sprite(100, 200, 'blueButton1').setInteractive(); // This makes the button interactive.
-    this.centerButton(this.gameButton, 1);
-
-    // We use add.text to create text.
-    this.gameText = this.add.text(0, 0, 'Play', {
-      fontSize: '32px',
-      fill: '#fff',
-    });
-    this.centerButtonText(this.gameText, this.gameButton);
-
-    this.gameButton.on(
-      'pointerdown',
-      () => {
-        this.scene.start('Game');
-      },
-    );
+  create () {
+    // Game
+    this.gameButton = new Button(this, config.width/2, config.height/2 - 100, 'blueButton1', 'blueButton2', 'Play', 'Game');
 
     // Options
-    this.optionsButton = this.add
-      .sprite(300, 200, 'blueButton1')
-      .setInteractive();
-    this.centerButton(this.optionsButton);
-
-    this.optionsText = this.add.text(0, 0, 'Options', {
-      fontSize: '32px',
-      fill: '#fff',
-    });
-    this.centerButtonText(this.optionsText, this.optionsButton);
-
-    this.optionsButton.on(
-      'pointerdown',
-      () => {
-        this.scene.start('Options');
-      },
-    );
+    this.optionsButton = new Button(this, config.width/2, config.height/2, 'blueButton1', 'blueButton2', 'Options', 'Options');
 
     // Credits
-    this.creditsButton = this.add
-      .sprite(300, 200, 'blueButton1')
-      .setInteractive();
-    this.centerButton(this.creditsButton, -1);
+    this.creditsButton = new Button(this, config.width/2, config.height/2 + 100, 'blueButton1', 'blueButton2', 'Credits', 'Credits');
 
-    this.creditsText = this.add.text(0, 0, 'Credits', {
-      fontSize: '32px',
-      fill: '#fff',
-    });
-    this.centerButtonText(this.creditsText, this.creditsButton);
-
-    this.creditsButton.on(
-      'pointerdown',
-      () => {
-        this.scene.start('Credits');
-      },
-    );
-
-    this.input.on('pointerover', (event, gameObjects) => {
-      gameObjects[0].setTexture('blueButton2');
-    });
-
-    this.input.on('pointerout', (event, gameObjects) => {
-      gameObjects[0].setTexture('blueButton1');
-    });
-
-    // Check if the music is set and play
     this.model = this.sys.game.globals.model;
     if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
@@ -84,19 +26,17 @@ export default class extends Phaser.Scene {
     }
   }
 
-  centerButton(gameObject, offset = 0) {
+  centerButton (gameObject, offset = 0) {
     Phaser.Display.Align.In.Center(
       gameObject,
-      this.add.zone(
-        config.width / 2,
-        config.height / 2 - offset * 100,
-        config.width,
-        config.height,
-      ),
+      this.add.zone(config.width/2, config.height/2 - offset * 100, config.width, config.height)
     );
   }
 
-  centerButtonText(gameText, gameButton) {
-    Phaser.Display.Align.In.Center(gameText, gameButton);
+  centerButtonText (gameText, gameButton) {
+    Phaser.Display.Align.In.Center(
+      gameText,
+      gameButton
+    );
   }
-}
+};
