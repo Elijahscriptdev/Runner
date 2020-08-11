@@ -104,8 +104,8 @@ create ()
 update () {
     if (gameOver)
     {
-        // return;
-        console.log('score')
+        gameOver = false;
+        
         this.scene.start('SubmitScore');
     }
 
