@@ -105,8 +105,9 @@ update () {
     if (gameOver)
     {
         gameOver = false;
-        
+        localStorage('score', score);
         this.scene.start('SubmitScore');
+        
     }
 
     if (cursors.left.isDown)
@@ -140,9 +141,10 @@ collectStar (player, star)
 
     //  Add and update the score
     score += 10;
+
     scoreText.setText('Score: ' + score);
 
-    if (stars.countActive(true) === 0)
+    if (stars.countActive(true) === 12)
     {
         //  A new batch of stars to collect
         stars.children.iterate(function (child) {

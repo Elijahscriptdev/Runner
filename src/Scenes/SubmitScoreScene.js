@@ -22,7 +22,7 @@ export default class SubmitScoreScene extends Phaser.Scene {
       method: 'post',
       body: JSON.stringify({
         user,
-        score: Math.round(this.sys.game.globals.score),
+        score: localStorage.getItem('score'),
       }),
       headers: {
         Accept: 'application/json',
