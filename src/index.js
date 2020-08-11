@@ -1,5 +1,5 @@
 import 'phaser';
-import config from './Config/config';
+import config from './config/config';
 import GameScene from './Scenes/GameScene';
 import BootScene from './Scenes/BootScene';
 import PreloaderScene from './Scenes/PreloaderScene';
