@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import Phaser from 'phaser';
 
 export default {
@@ -6,6 +5,10 @@ export default {
   parent: 'phaser-example',
   width: 800,
   height: 600,
+  autoCenter: Phaser.Scale.CENTER_BOTH,
+  dom: {
+    createContainer: true,
+  },
   physics: {
     default: 'arcade',
     arcade: {
