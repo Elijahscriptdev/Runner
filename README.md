@@ -12,8 +12,7 @@ Runner is a single player based game. The game is intended to determine how fast
 
 ![Runner](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1597177070/Annotation_2020-08-11_210520_qj5ji5.png)
 
-### Live link
-
+### Live [link](https://runner-rpg-game.netlify.app/)
 
 ## Gameplay
 ###### Player
