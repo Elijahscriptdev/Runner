@@ -1,6 +1,6 @@
 # Video Game: Fitaita
 
-![fitaita2](https://user-images.githubusercontent.com/37341054/83773603-66971b80-a68d-11ea-9fd3-5bf804fbdba1.png)
+![Runner]()
 
 Runner is an RPG video game built with [Phaser 3](https://phaser.io), an open source framework for Canvas and WebGL powered games. This game was inspired by [Phaser 3 tutorial: Endless Runner](http://phaser.io/tutorials/making-your-first-phaser-3-game/part1). The main objective was to create a custom role play game.
 
