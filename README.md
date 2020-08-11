@@ -66,7 +66,7 @@ $ npm install
 ```sh
 $ npm run start
 ```
-This will open the app at port-8000. If it doesn't open, visit ```http://localhost:8000```
+This will open the app at port-8080. If it doesn't open, visit ```http://localhost:8080```
 
 ### Testing
 
