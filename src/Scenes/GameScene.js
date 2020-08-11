@@ -16,8 +16,8 @@ export default class GameScene extends Phaser.Scene {
 
   preload ()
 {
-    this.load.image('sky', 'assets/sky.png');
-    this.load.image('ground', 'assets/platform.png');
+    this.load.image('bg3', 'assets/bg3.jpg');
+    this.load.image('ground', 'assets/platform6.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
@@ -26,7 +26,7 @@ export default class GameScene extends Phaser.Scene {
 create ()
 {
     //  A simple background for our game
-    this.add.image(400, 300, 'sky');
+    this.add.image(400, 300, 'bg3');
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
@@ -105,7 +105,7 @@ update () {
     if (gameOver)
     {
         gameOver = false;
-        // localStorage('score', score);
+        localStorage.setItem('score', score);
         this.scene.start('SubmitScore');
         
     }
