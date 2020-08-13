@@ -1,4 +1,4 @@
-import SubmitScoreScene from '../src/Scenes/SubmitScoreScene'
+// import SubmitScoreScene from '../src/Scenes/SubmitScoreScene'
 
 test('anything', () => {
   expect(true).toBe(true);
