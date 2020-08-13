@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "A Phaser 3 Project Template",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "build": "webpack --mode production",
     "watch": "webpack --watch --mode development",
     "start": "webpack-dev-server --open",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,13 +20,20 @@
   },
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "jest": "^26.3.0",
-    "phaser": "^3.3.0",
+    
     "raw-loader": "^0.5.1",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.11.0"
+  },
+  "dependencies": {
+    "phaser": "^3.3.0",
+    "jest-canvas-mock": "^2.2.0"
   }
 }

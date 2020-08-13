@@ -1,4 +1,4 @@
-import 'phaser';
+// import 'phaser';
 import config from '../config/config';
 import Button from '../Objects/Button';
 
