@@ -91,7 +91,8 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(stars, platforms);
     this.physics.add.collider(bombs, platforms);
 
-    //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
+    //  Checks to see if the player overlaps with any of the
+    // stars, if he does call the collectStar function
     this.physics.add.overlap(player, stars, this.collectStar, null, this);
 
     this.physics.add.collider(player, bombs, this.hitBomb, null, this);
@@ -147,7 +148,7 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
-  hitBomb(player, bomb) {
+  hitBomb(player) {
     this.physics.pause();
 
     player.setTint(0xff0000);

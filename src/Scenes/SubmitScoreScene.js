@@ -31,7 +31,7 @@ export default class SubmitScoreScene extends Phaser.Scene {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        data;
         this.scene.start('Score');
       });
   }

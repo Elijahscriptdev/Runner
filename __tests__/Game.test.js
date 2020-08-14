@@ -2,11 +2,12 @@
 import Game from '../src/Objects/Game';
 import config from '../src/config/config';
 
+let game;
+
 beforeAll(() => {
   game = new Game(config);
 });
 
-let game;
 test('Expect score to be 0 when start the game', () => {
   expect(game.globals.score).toEqual(0);
 });
