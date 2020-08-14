@@ -1,4 +1,4 @@
-// import 'phaser';
+import 'phaser';
 
 export default class SubmitScoreScene extends Phaser.Scene {
   constructor() {
