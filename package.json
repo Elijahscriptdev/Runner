@@ -19,7 +19,7 @@
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
     "webpack-dev-server": "^2.11.0",
-    "webpack": "^3.4.1",
+    "webpack": "^5.75.0",
     "raw-loader": "^0.5.1",
     "phaser": "^3.3.0"
   }
